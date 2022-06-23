@@ -69,11 +69,103 @@ $(function () {
   <div class="slide header11" data-selector="header11">
     <div class="container">
         <div class="banner-text ">
-          <h5 class=" ">Dashboard Customer</h5>
+          <h5 class=" ">Dashboard Customers</h5>
+          <p> <p>
+          <br> <br>
           <!-- COLOCAR DASHBOARD AQUI! -->
-          <p>Common Customers</p>
-          <!--  -->
-          <p>Premium Customers</p>
+
+          
+          <?php
+            $sql="SELECT COUNT(*) as T from cliente";
+            $y = mysqli_query($con, $sql);
+            $y =  mysqli_fetch_assoc($y);
+            $total = $y['T'];
+         
+                ?>
+                 
+                 <?php
+            $sql="SELECT COUNT(*) as U from animal";
+            $x = mysqli_query($con, $sql);
+            $x =  mysqli_fetch_assoc($x);
+            $total1 = $x['U'];
+         
+                ?>
+                
+                <?php
+            $sql="SELECT COUNT(*) as I from service";
+            $z = mysqli_query($con, $sql);
+            $z =  mysqli_fetch_assoc($z);
+            $total2 = $z['I'];
+         
+                ?>
+
+                
+
+          <section class="content">
+      <div class="container-fluid">
+        <!-- Info boxes -->
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1" style="width: 25px"><span class="fa fa-user-o" aria-hidden="true" style="align-center"></span> 
+
+              <div class="info-box-content" style="color:white;">
+                <h3 class>Customers </span>
+                
+                <span class="info-box-number" style="color:yellow;">
+                
+                        <?php echo $total ?>
+                  
+                  
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><span class="fa fa-paw mr-2" aria-hidden="true" style="width: 8px"></span>
+
+              <div class="info-box-content" style="color:white;">
+                <h3 class>Pets</span>
+                <span class="info-box-number" style="color:yellow;">
+                
+                <?php echo $total1 ?>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><span class="fa fa-address-card" aria-hidden="true" style="width: 19px"></span>
+
+              <div class="info-box-content" style="color:white;">
+                <h3 class>Services</span>
+                <span class="info-box-number" style="color:yellow;">
+                
+                <?php echo $total2 ?>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>  
+          
         </div>
       </div>
   </div>
@@ -219,7 +311,12 @@ $(function () {
 		document.documentElement.scrollTop = 0;
 	}
 </script>
+
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js%22%3E"> </script>;
+
 <!-- /move top -->
 </body>
+
+
 
 </html>
